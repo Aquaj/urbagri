@@ -13,6 +13,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'i18n'
 
+gem 'puma'
+
 gem 'foliage'
 gem 'font-awesome-rails'
 
