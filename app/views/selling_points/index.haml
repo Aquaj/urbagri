@@ -1,0 +1,48 @@
+%header.hero-banner#apples
+  %h1
+    = image_tag 'logo-blanc.svg', alt: :'picture_alts.logo'
+%navbar
+  .navlinks
+    - t('sections').each do |id, tr|
+      = link_to tr, "##{id}"
+  .locale
+    - I18n.available_locales.sort.reverse.each do |disp|
+      - active = (disp == I18n.locale)
+      = link_to t("locales.#{disp}"), welcome_path(disp), class: (active && :active) || nil
+%section#tagline.brand-identity
+  %article.important
+    %h2= t(:tagline)
+  %article
+    = link_to t(:call_to_action), "#", class: 'btn border-only brand-identity'
+%section#engagements.col-right
+  %aside
+    = image_tag "engagements-example.jpeg", alt: :'ripe fruits and vegetables'
+  %article.important.lowercase
+    %h3.lowercase= t("sections.engagements")
+    %ul
+      - t(:selling_points).each_line do |item|
+        %li= item
+%section#container.col-left
+  %aside
+    = image_tag "container-walk-in.jpeg", alt: :'inside a container'
+  %article.centered
+    %p= t(:container_desc)
+%div#find_us
+  :ruby
+    positions = [{
+      name: "FrenchTech Bordeaux",
+      shape: { latitude: 44.8644295, longitude: -0.5564286 },
+      shape_color: "#30AB62",
+      group: "Containers"
+    }]
+  = foliage do |leaf|
+    - leaf.serie :positions, positions
+    - leaf.point_group :containers, :positions
+%footer.brand-identity-bg
+  %p.addendum= t(:make_message).gsub(/\[(.*)\]/) { link_to Regexp.last_match[1], "http://thebestteam.co" }.html_safe
+  %div#socmedia-links
+    = link_to :icon, '#', class: 'presentation-circle facebook'
+    = link_to :icon, '#', class: 'presentation-circle twitter'
+    = link_to :icon, '#', class: 'presentation-circle thebestteam'
+  %div.separator
+  = image_tag 'logo-blanc.svg', alt: :'picture_alts.logo', id: 'brand-logo'

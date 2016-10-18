@@ -1,0 +1,299 @@
+// Place all the styles related to the SellingPoints controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import '_variables';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto';
+  color: $grey;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: $grey;
+  text-decoration: none;
+}
+
+.hero-banner {
+  height: 100vh;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-size: cover;
+
+  &#apples {
+    text-align: center;
+    background-image: image-url("apples.jpeg");
+  }
+}
+
+navbar {
+  position: relative;
+
+  padding: $default-spacing;
+
+  font-weight: 300;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .navlinks {
+    padding: 0 $default-spacing;
+    flex: 1 0;
+
+    text-transform: lowercase;
+
+    a {
+      padding-right: $default-spacing;
+    }
+  }
+
+  .locale {
+    text-transform: uppercase;
+
+    a:not(:last-child):after {
+      content: '-';
+      padding-left: 0.15rem;
+    }
+
+    .active {
+      font-weight: 400; 
+      color: $black;
+    }
+  }
+}
+
+section {
+  position: relative;
+  font-size: 3rem;
+  max-width: 100%;
+  padding: calc(2 * #{$default-spacing});
+  
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-of-type):before {
+    content: "";
+  
+    position: absolute;
+    right: calc(2 * #{$default-spacing});
+    left: calc(2 * #{$default-spacing});
+    height: $line-thickness; 
+    bottom: 0; 
+    background: $brand-primary;
+  }
+
+  &:not(:last-of-type):after {
+    content: "";
+
+    z-index: -1;
+    position: absolute;
+    left: calc(2 * #{$default-spacing});
+    width: $line-thickness;
+    top: 0;
+    bottom: 0; 
+    background: $brand-primary;
+  }
+
+  &:nth-of-type(2n+1):not(:first-of-type) {
+    &:after {
+      left: unset;
+      right: calc(2 * #{$default-spacing});
+    }
+  }
+
+  &:first-of-type {
+    padding-top: 0;
+
+    &:before {
+      top: 0;
+      right: 0;
+      bottom: unset;
+    }
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  &.col-left{
+    padding-right: 0;
+    flex-direction: row-reverse;
+    article {
+      p {
+        padding-left: 33%;
+        text-align: right;
+      }
+    }
+  }
+
+  &.col-right{
+    padding-left: 0;
+    flex-direction: row;
+    article {
+      p {
+        padding-right: 33%;
+        text-align: left;
+      }
+    }
+  }
+
+  aside {
+    flex: 1 1 50%;
+
+    img {
+      height: 100%;
+      margin: 0;
+      object-fit: cover;
+    }
+  }
+
+  article {
+    flex: 1 1 50%;
+    padding: $default-spacing;
+
+    h3 {
+      font-family: 'Roboto';
+      font-weight: 300;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    ul {
+      color: $black;
+      height: 100%;
+      padding: $default-spacing;
+
+      li {
+        padding: 1rem 0;
+
+        &:before {
+          display: inline-block;
+          content: '';
+          position: relative;
+          left: -2rem;
+          height: 0.95rem;
+          width: 2rem;
+          background-color: $green;
+        }
+      }
+    }
+  }
+
+  &#tagline {
+    flex-direction: column;
+
+    article{
+      text-align: center;
+    
+      .btn {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+footer {
+  padding: calc(2 * #{$default-spacing});
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  height: 15rem;
+  font-size: 1.2rem;
+
+  a {
+    color: white;
+    text-decoration: underline;
+
+    &:visited {
+      color: darken(white, 20%);
+    }
+
+    &:hover {
+      color: darken(white, 30%);
+    }
+  }
+
+  #socmedia-links {
+    flex: 1;
+
+    display: flex;
+    justify-content: flex-end;
+
+    a.presentation-circle {
+      background-color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100%;
+      margin-left: $default-spacing;
+    }
+  }
+
+  img#brand-logo {
+    width: 20%;
+  }
+}
+
+.separator {
+  width: 1px;
+  height: 100%;
+  margin: 0 calc(2 * #{$default-spacing});
+  background-color: white;
+}
+
+.important {
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+
+.brand-identity {
+  color: $brand-primary;
+}
+
+.brand-identity-bg {
+  background-color: $brand-primary;
+}
+
+.btn {
+  padding: calc(0.25 * #{$default-spacing}) calc(0.5 * #{$default-spacing});
+  background: $brand-primary;
+  text: white;
+}
+
+.border-only {
+  background: transparent;
+  border: 0.2rem solid $brand-primary;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
