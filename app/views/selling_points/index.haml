@@ -16,15 +16,15 @@
     = link_to t(:call_to_action), "#", class: 'btn border-only brand-identity'
 %section#engagements.col-right
   %aside
-    = image_tag "engagements-example.jpeg", alt: :'ripe fruits and vegetables'
+    = image_tag image-url('engagements-example.jpg'), alt: :'ripe fruits and vegetables'
   %article.important.lowercase
-    %h3.lowercase= t("sections.engagements")
+    %h3.lowercase= t('sections.engagements')
     %ul
       - t(:selling_points).each_line do |item|
         %li= item
 %section#container.col-left
   %aside
-    = image_tag "container-walk-in.jpeg", alt: :'inside a container'
+    = image_tag image-url('container-walk-in.jpg'), alt: :'inside a container'
   %article.centered
     %p= t(:container_desc)
 %div#find_us
