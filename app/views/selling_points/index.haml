@@ -31,18 +31,24 @@
   :ruby
     positions = [{
       name: "FrenchTech Bordeaux",
-      shape: { latitude: 44.8644295, longitude: -0.5564286 },
+      shape: { type: 'Point', coordinates: [-0.5564286, 44.8644295] },
       shape_color: "#30AB62",
-      group: "Containers"
+      group: t(:our_containers)
     }]
   = foliage do |leaf|
     - leaf.serie :positions, positions
-    - leaf.point_group :containers, :positions
+    - leaf.point_group :'', :positions
+
+    - leaf.control :layer_selector
+    - leaf.control :zoom
 %footer.brand-identity-bg
   %p.addendum= t(:make_message).gsub(/\[(.*)\]/) { link_to Regexp.last_match[1], "http://thebestteam.co" }.html_safe
   %div#socmedia-links
-    = link_to :icon, '#', class: 'presentation-circle facebook'
-    = link_to :icon, '#', class: 'presentation-circle twitter'
-    = link_to :icon, '#', class: 'presentation-circle thebestteam'
+    = link_to '#', class: 'presentation-circle facebook' do
+      = fa_icon "facebook"
+    = link_to '#', class: 'presentation-circle twitter' do
+      = fa_icon "twitter"
+    = link_to '#', class: 'presentation-circle instagram' do
+      = fa_icon "instagram"
   %div.separator
   = image_tag 'logo-blanc.svg', alt: :'picture_alts.logo', id: 'brand-logo'

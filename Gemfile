@@ -13,7 +13,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'i18n'
 
-gem 'foliage', path: '../foliage-gem'
+gem 'foliage'
+gem 'font-awesome-rails'
 
 gem 'haml'
 gem 'haml-rails'

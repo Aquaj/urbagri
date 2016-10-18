@@ -11,7 +11,10 @@
  * file per style scope.
  *
  *= require reset
+ *= require foliage
+ *= require font-awesome
  *= require_self
  */
 
 @import 'selling_points';
+@import "font-awesome";
